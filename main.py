@@ -38,7 +38,7 @@ for msg in app.get_chat_history(m_chat_id):
 	except:
 		pass
 	try:
-		if msg.caption[-8:] == "old link": msg.edit_caption(msg.caption[:-9] + "**new link**", parse_mode=enums.ParseMode.MARKDOWN)
+		if msg.caption[-len(old_link):] == old_link: msg.edit_caption(msg.caption[:-(len(old_link)+1)] + f"**{new_link}**", parse_mode=enums.ParseMode.MARKDOWN)
 	except:
 		pass
 	sleep(0.2)
